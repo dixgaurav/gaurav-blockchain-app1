@@ -1,24 +1,36 @@
 {
-  "name": "global-citizens-network",
-  "version": "0.0.1",
-  "description": "The goal of this pattern is to build a 3-member blockchain application using the IBM Blockchain Platform, consisting of the following entities: an organization representing a government entity, an organization representing Global Citizen(i.e. NGO ) focused on the provision of aid, and  an organization representing Aid organization receiving the funds from governments for the humanitarian causes",
-  "scripts": {
-    "prepublish": "composer archive create -t dir -n .",
-    "test": "mocha --recursive"
+  "engines": {
+    "composer": "^0.19.5"
   },
-  "author": "Sample",
-  "email": "sample",
+  "name": "gaurav-network1",
+  "version": "0.0.1",
+  "description": "Gaurav&#39;s Business network",
+  "scripts": {
+    "prepublish": "mkdirp ./dist && composer archive create --sourceType dir --sourceName . -a ./dist/gaurav-network1.bna",
+    "pretest": "npm run lint",
+    "lint": "eslint .",
+    "test": "nyc mocha -t 0 test/*.js && cucumber-js"
+  },
+  "keywords": [
+    "composer",
+    "composer-network"
+  ],
+  "author": "Gaurav Dixit",
+  "email": "dixit.mnit@gmail.com",
   "license": "Apache-2.0",
   "devDependencies": {
-    "composer-admin": "latest",
-    "composer-client": "latest",
-    "composer-common": "latest",
-    "composer-connector-embedded": "latest",
+    "composer-admin": "^0.19.5",
+    "composer-cli": "^0.19.5",
+    "composer-client": "^0.19.5",
+    "composer-common": "^0.19.5",
+    "composer-connector-embedded": "^0.19.5",
+    "composer-cucumber-steps": "^0.19.5",
     "chai": "latest",
+    "chai-as-promised": "latest",
+    "cucumber": "^2.2.0",
     "eslint": "latest",
-    "istanbul": "latest",
+    "nyc": "latest",
     "mkdirp": "latest",
     "mocha": "latest"
-  },
-  "dependencies": {}
+  }
 }
